@@ -226,6 +226,7 @@ public final class CameraManager {
       int topOffset = (screenResolution.y - height) / 2;
       framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
       Log.d(TAG, "Calculated framing rect: " + framingRect);
+      Log.d(TAG, "TOM NOT LIKE YOU!!!!");
     }
     return framingRect;
   }
@@ -247,11 +248,23 @@ public final class CameraManager {
         // Called early, before init even finished
         return null;
       }
+
+      /*
       rect.left = rect.left * cameraResolution.x / screenResolution.x;
       rect.right = rect.right * cameraResolution.x / screenResolution.x;
       rect.top = rect.top * cameraResolution.y / screenResolution.y;
       rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
+      */
+
+      //START HACK
+      rect.left = rect.left * cameraResolution.y / screenResolution.x;
+      rect.right = rect.right * cameraResolution.y / screenResolution.x;
+      rect.top = rect.top * cameraResolution.x / screenResolution.y;
+      rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+      //END HACK
+
       framingRectInPreview = rect;
+
     }
     return framingRectInPreview;
   }
