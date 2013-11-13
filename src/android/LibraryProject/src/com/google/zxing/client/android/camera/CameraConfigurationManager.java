@@ -69,10 +69,10 @@ final class CameraConfigurationManager {
 
     //START HACK
     //if (width < height) {
-      Log.i(TAG, "Display reports portrait orientation; assuming this is incorrect");
-      int temp = width;
-      width = height;
-      height = temp;
+      //Log.i(TAG, "Display reports portrait orientation; assuming this is incorrect");
+      //int temp = width;
+      //width = height;
+      //height = temp;
     //}
     //END HACK
 
