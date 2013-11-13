@@ -123,16 +123,20 @@ final class CameraConfigurationManager {
     }
 
     parameters.setPreviewSize(cameraResolution.x, cameraResolution.y);
-
+    parameters.set("orientation", "portrait");
     camera.setParameters(parameters);
 
     //START HACK
-    camera.setDisplayOrientation(90);
+    //camera.setDisplayOrientation(90);
     //END HACK
   }
 
   Point getCameraResolution() {
-    return cameraResolution;
+	  int tmp = cameraResolution.x;
+	  cameraResolution.x = cameraResolution.y;
+	  cameraResolution.y = tmp;
+	  return cameraResolution;
+    //return cameraResolution;
   }
 
   Point getScreenResolution() {
@@ -249,7 +253,6 @@ final class CameraConfigurationManager {
       bestSize = new Point(defaultSize.width, defaultSize.height);
       Log.i(TAG, "No suitable preview sizes, using default: " + bestSize);
     }
-
     Log.i(TAG, "Found best approximate preview size: " + bestSize);
     return bestSize;
   }
