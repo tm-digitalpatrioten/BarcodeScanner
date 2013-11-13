@@ -216,7 +216,7 @@ public final class CameraManager {
       } else if (width > MAX_FRAME_WIDTH) {
         width = MAX_FRAME_WIDTH;
       }
-      int height = screenResolution.y * 3 / 4;
+      int height = screenResolution.y * 4 / 5;
       if (height < MIN_FRAME_HEIGHT) {
         height = MIN_FRAME_HEIGHT;
       } else if (height > MAX_FRAME_HEIGHT) {
@@ -226,7 +226,6 @@ public final class CameraManager {
       int topOffset = (screenResolution.y - height) / 2;
       framingRect = new Rect(leftOffset, topOffset, leftOffset + width, topOffset + height);
       Log.d(TAG, "Calculated framing rect: " + framingRect);
-      Log.d(TAG, "TOM NOT LIKE YOU!!!!");
     }
     return framingRect;
   }
@@ -249,18 +248,19 @@ public final class CameraManager {
         return null;
       }
 
-      /*
+      
       rect.left = rect.left * cameraResolution.x / screenResolution.x;
       rect.right = rect.right * cameraResolution.x / screenResolution.x;
       rect.top = rect.top * cameraResolution.y / screenResolution.y;
       rect.bottom = rect.bottom * cameraResolution.y / screenResolution.y;
-      */
-
+      
       //START HACK
+      /*
       rect.left = rect.left * cameraResolution.y / screenResolution.x;
       rect.right = rect.right * cameraResolution.y / screenResolution.x;
       rect.top = rect.top * cameraResolution.x / screenResolution.y;
       rect.bottom = rect.bottom * cameraResolution.x / screenResolution.y;
+      */
       //END HACK
 
       framingRectInPreview = rect;

@@ -211,7 +211,7 @@
             <string name="msg_default_format">Format</string>
             <string name="msg_default_meta">Metadata</string>
             <string name="msg_default_mms_subject">Hi</string>
-            <string name="msg_default_status">Please point the highlighted area to your qr code</string>
+            <string name="msg_default_status"></string>
             <string name="msg_default_time">Time</string>
             <string name="msg_default_type">Type</string>
             <string name="msg_encode_contents_failed">Could not encode a barcode from the data provided.</string>
@@ -234,7 +234,7 @@
             <string name="msg_share_text">Or type some text and press Enter</string>
             <string name="msg_sure">Are you sure?</string>
             <string name="msg_unmount_usb">Sorry, the SD card is not accessible.</string>
-            <string name="preferences_actions_title">When a barcode is found\u2026</string>
+            <string name="preferences_actions_title">When a barcode is \u2026</string>
             <string name="preferences_auto_focus_title">Use auto focus</string>
             <string name="preferences_bulk_mode_summary">Scan and save many barcodes continuously</string>
             <string name="preferences_bulk_mode_title">Bulk scan mode</string>
@@ -272,7 +272,7 @@
             <string name="result_sms">Found SMS address</string>
             <string name="result_tel">Found phone number</string>
             <string name="result_text">Found plain text</string>
-            <string name="result_uri">Found URL</string>
+            <string name="result_uri"></string>
             <string name="result_wifi">Found WLAN Configuration</string>
             <string name="sbc_name">Google Book Search</string>
             <string name="share_name">Share via barcode</string>

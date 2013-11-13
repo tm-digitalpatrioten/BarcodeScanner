@@ -68,12 +68,12 @@ final class CameraConfigurationManager {
     // when waking from sleep. If it's not landscape, assume it's mistaken and reverse them:
 
     //START HACK
-    //if (width < height) {
-      //Log.i(TAG, "Display reports portrait orientation; assuming this is incorrect");
-      //int temp = width;
-      //width = height;
-      //height = temp;
-    //}
+    if (width < height) {
+      Log.i(TAG, "Display reports portrait orientation; assuming this is incorrect");
+      int temp = width;
+      width = height;
+      height = temp;
+    }
     //END HACK
 
     screenResolution = new Point(width, height);
@@ -123,7 +123,6 @@ final class CameraConfigurationManager {
     }
 
     parameters.setPreviewSize(cameraResolution.x, cameraResolution.y);
-    parameters.set("orientation", "portrait");
     camera.setParameters(parameters);
 
     //START HACK
@@ -132,11 +131,7 @@ final class CameraConfigurationManager {
   }
 
   Point getCameraResolution() {
-	  int tmp = cameraResolution.x;
-	  cameraResolution.x = cameraResolution.y;
-	  cameraResolution.y = tmp;
-	  return cameraResolution;
-    //return cameraResolution;
+    return cameraResolution;
   }
 
   Point getScreenResolution() {
@@ -254,6 +249,7 @@ final class CameraConfigurationManager {
       Log.i(TAG, "No suitable preview sizes, using default: " + bestSize);
     }
     Log.i(TAG, "Found best approximate preview size: " + bestSize);
+    
     return bestSize;
   }
 

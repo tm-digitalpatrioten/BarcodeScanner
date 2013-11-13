@@ -77,21 +77,21 @@ final class DecodeHandler extends Handler {
     Result rawResult = null;
 
     //START HACK
+    /*
     byte[] rotatedData = new byte[data.length];
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++)
             rotatedData[x * height + height - y - 1] = data[x + y * width];
     }
-    /*
     int tmp = width;
     width = height;
     height = tmp;
-    */
 
     PlanarYUVLuminanceSource source = activity.getCameraManager().buildLuminanceSource(rotatedData, width, height);
+    */
     //END HACK
 
-    //PlanarYUVLuminanceSource source = activity.getCameraManager().buildLuminanceSource(data, width, height);
+    PlanarYUVLuminanceSource source = activity.getCameraManager().buildLuminanceSource(data, width, height);
 
     if (source != null) {
       BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
