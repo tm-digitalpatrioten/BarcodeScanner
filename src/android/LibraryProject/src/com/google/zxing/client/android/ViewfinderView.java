@@ -107,13 +107,12 @@ public final class ViewfinderView extends View {
     } else {
 
       // Draw a red "laser scanner" line through the middle to show decoding is active
-        /*
+      
       paint.setColor(laserColor);
       paint.setAlpha(SCANNER_ALPHA[scannerAlpha]);
       scannerAlpha = (scannerAlpha + 1) % SCANNER_ALPHA.length;
       int middle = frame.height() / 2 + frame.top;
       canvas.drawRect(frame.left + 2, middle - 1, frame.right - 1, middle + 2, paint);
-      */
       
       Rect previewFrame = cameraManager.getFramingRectInPreview();
       float scaleX = frame.width() / (float) previewFrame.width();
