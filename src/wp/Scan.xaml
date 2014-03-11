@@ -34,6 +34,31 @@
                     </VideoBrush.RelativeTransform>
                 </VideoBrush>
             </Canvas.Background>
+            <Rectangle Name="ScannerLine" Opacity="0.5" Fill="Red" Height="7" Canvas.Left="60" Stroke="Transparent" Canvas.Top="333" Width="375"/>
+            <Rectangle Fill="Lime" Opacity="0.7" Height="14" Canvas.Left="60" Stroke="Transparent" Canvas.Top="128" Width="70"/>
+            <Rectangle Fill="Lime" Opacity="0.7" Height="14" Canvas.Left="365" Stroke="Transparent" Canvas.Top="128" Width="70"/>
+            <Rectangle Fill="Lime" Opacity="0.7" Height="14" Canvas.Left="365" Stroke="Transparent" Canvas.Top="526" Width="70"/>
+            <Rectangle Fill="Lime" Opacity="0.7" Height="14" Canvas.Left="60" Stroke="Transparent" Canvas.Top="526" Width="70"/>
+            <Rectangle Fill="Lime" Opacity="0.7" Height="14" Canvas.Left="394" Stroke="Transparent" Canvas.Top="497" Width="70" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="-90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Opacity="0.7" Fill="Lime" Height="14" Canvas.Left="32" Stroke="Transparent" Canvas.Top="497" Width="70" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="-90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Opacity="0.7" Fill="Lime" Height="14" Canvas.Left="31" Stroke="Transparent" Canvas.Top="157" Width="70" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="-90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
+            <Rectangle Opacity="0.7" Fill="Lime" Height="14" Canvas.Left="394" Stroke="Transparent" Canvas.Top="157" Width="70" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" d:LayoutRounding="Auto">
+                <Rectangle.RenderTransform>
+                    <CompositeTransform Rotation="-90"/>
+                </Rectangle.RenderTransform>
+            </Rectangle>
         </Canvas>
     </Grid>
 

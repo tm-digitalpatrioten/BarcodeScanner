@@ -19,6 +19,8 @@ namespace BarcodeScanner
         private PhotoCamera phoneCamera;
         private IBarcodeReader barcodeReader;
         private DispatcherTimer scanTimer;
+        private DispatcherTimer scanLineTimer;
+        private bool raiseOpacity = false;
         private WriteableBitmap previewBuffer;
 
         private string scannedCode = string.Empty;
@@ -53,17 +55,46 @@ namespace BarcodeScanner
             scanTimer.Interval = TimeSpan.FromMilliseconds(250);
             scanTimer.Tick += (o, arg) => ScanForBarcode();
 
+            scanLineTimer = new DispatcherTimer();
+            scanLineTimer.Interval = TimeSpan.FromMilliseconds(20);
+            scanLineTimer.Tick += (o, arg) => {
+                var newOpacity = ScannerLine.Opacity;
+                if (raiseOpacity) {
+                    newOpacity += 0.06;
+                    if (newOpacity >= 0.8) {
+                        raiseOpacity = false;
+                        newOpacity = 0.8;
+                    } 
+                }else{
+                    newOpacity -= 0.06;
+                    if (newOpacity <= 0.1)
+                    {
+                        raiseOpacity = true;
+                        newOpacity = 0.1;
+                    } 
+                }
+                    
+                ScannerLine.Opacity = newOpacity;
+            };
+
             base.OnNavigatedTo(e);
         }
 
         private void OnCameraButtonShutterKeyHalfPressed(object sender, EventArgs e)
         {
-            phoneCamera.Focus();
+            try{
+                phoneCamera.Focus();
+            }
+            catch (SystemException myException) {
+ 
+            }
+            
         }
 
         protected override void OnNavigatingFrom(System.Windows.Navigation.NavigatingCancelEventArgs e)
         {
             scanTimer.Stop();
+            scanLineTimer.Stop();
 
             if (phoneCamera != null)
             {
@@ -93,15 +124,16 @@ namespace BarcodeScanner
                     // If we want to limit the type of barcodes our app can read, 
                     // we can do it by adding each format to this list object
 
-                    //var supportedBarcodeFormats = new List<BarcodeFormat>();
-                    //supportedBarcodeFormats.Add(BarcodeFormat.QR_CODE);
+                    var supportedBarcodeFormats = new List<BarcodeFormat>();
+                    supportedBarcodeFormats.Add(BarcodeFormat.QR_CODE);
                     //supportedBarcodeFormats.Add(BarcodeFormat.DATA_MATRIX);
-                    //_bcReader.PossibleFormats = supportedBarcodeFormats;
 
+                    barcodeReader.Options.PossibleFormats = supportedBarcodeFormats;
                     barcodeReader.Options.TryHarder = true;
 
                     barcodeReader.ResultFound += OnBarcodeResultFound;
                     scanTimer.Start();
+                    scanLineTimer.Start();
                 });
             }
             else
