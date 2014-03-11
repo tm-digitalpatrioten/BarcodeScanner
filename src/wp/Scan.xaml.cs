@@ -120,6 +120,7 @@ namespace BarcodeScanner
                 var barcodeScannerResult = new BarcodeScannerResult();
                 barcodeScannerResult.format = obj.BarcodeFormat.ToString();
                 barcodeScannerResult.text = obj.Text;
+                barcodeScannerResult.cancelled = false;
                 scanSucceeded = true;
 
                 BarcodeScannerPlugin.OnScanSucceeded(barcodeScannerResult);

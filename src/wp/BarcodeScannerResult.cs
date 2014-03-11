@@ -19,5 +19,11 @@ namespace BarcodeScanner
             get;
             set;
         }
+
+        public bool cancelled
+        {
+            get;
+            set;
+        }
     }
 }
