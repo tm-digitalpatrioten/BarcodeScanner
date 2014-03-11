@@ -40,19 +40,6 @@
         <framework src="QuartzCore.framework" />
     </platform>
 	
-	<platform name="wp7">
-		<config-file target="config.xml" parent="/*">
-            <feature name="BarcodeScanner">
-                <param name="wp-package" value="BarcodeScanner"/>
-            </feature>
-        </config-file>
-		
-		<source-file src="src/wp/BarcodeScanner.cs" />	
-		<source-file src="src/wp/BarcodeScannerResult.cs" />	
-		<source-file src="src/wp/Scan.xaml.cs" />	
-		<source-file src="src/wp/Scan.xaml" />	
-	</platform>
-	
 	<platform name="wp8">
 		<config-file target="config.xml" parent="/*">
             <feature name="BarcodeScanner">
@@ -62,7 +49,8 @@
 		
 		<source-file src="src/wp/BarcodeScanner.cs" />	
 		<source-file src="src/wp/BarcodeScannerResult.cs" />	
-		<source-file src="src/wp/Scan.xaml.cs" />	
+		<source-file src="src/wp/Scan.xaml.cs" />
+		<source-file src="src/wp/zxing/zxing.wp8.0.dll" />		
 		<source-file src="src/wp/Scan.xaml" />	
 	</platform>
 
