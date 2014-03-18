@@ -226,7 +226,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
         
         String customPromptMessage = intent.getStringExtra(Intents.Scan.PROMPT_MESSAGE);
         if (customPromptMessage != null) {
-          statusView.setText(customPromptMessage);
+          //statusView.setText(customPromptMessage);
         }
 
       } else if (dataString != null &&
@@ -583,7 +583,7 @@ public final class CaptureActivity extends Activity implements SurfaceHolder.Cal
     // barcode was found (e.g. contact info) rather than the full contents, which they won't
     // have time to read.
     if (resultDurationMS > 0) {
-      statusView.setText(getString(resultHandler.getDisplayTitle()));
+      //statusView.setText(getString(resultHandler.getDisplayTitle()));
     }
 
     if (copyToClipboard && !resultHandler.areContentsSecure()) {
